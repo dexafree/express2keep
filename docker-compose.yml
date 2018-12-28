@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+    express:
+        build:
+            context: ./google-express-getitems
+        env_file:
+            - config.env
+        restart: always
+
+    keep:
+        build:
+            context: ./python
+        env_file:
+            - config.env
+        restart: always
