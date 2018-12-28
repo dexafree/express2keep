@@ -10,7 +10,6 @@ gkeepapi.node.DEBUG = True
 USERNAME = os.environ['EMAIL']
 PASSWORD = os.environ['PASS']
 MAC = os.environ['MAC']
-DELAY = int(os.environ['DELAY']) if 'DELAY' in os.environ else 60
 
 SHOPLIST_TITLE = os.environ['NOTE_TITLE']
 

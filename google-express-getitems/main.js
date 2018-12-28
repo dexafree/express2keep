@@ -3,6 +3,7 @@ const fs = require('fs');
 const axios = require('axios');
 const noderus = require('noderus');
 
+const DELAY = parseInt(process.env['DELAY']) * 1000;
 const LIST_ID = process.env['LIST_ID'];
 const LOGIN_URL = `https://accounts.google.com/signin/v2/identifier?passive=1209600&continue=https%3A%2F%2Fshoppinglist.google.com%2Fu%2F0%2Flists%2F${LIST_ID}&followup=https%3A%2F%2Fshoppinglist.google.com%2Fu%2F0%2Flists%2F${LIST_ID}&flowName=GlifWebSignIn&flowEntry=ServiceLogin`;
 const URL = `https://shoppinglist.google.com/u/0/lists/${LIST_ID}`;
@@ -199,7 +200,7 @@ const main = async () => {
             await processPage(page);
         }
 
-        await timeout(60 * 1000);
+        await timeout(DELAY);
 
         if (page != null) {
             try {
